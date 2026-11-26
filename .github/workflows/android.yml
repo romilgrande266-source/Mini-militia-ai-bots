@@ -15,6 +15,12 @@ jobs:
       - name: Check out source
         uses: actions/checkout@v4
 
+      - name: Extract project ZIP committed to the repo
+        run: |
+          unzip -o ClassicAIPractice-REPO-ROOT.zip
+          test -f settings.gradle.kts && test -f build.gradle.kts && test -d app
+          echo "Project files extracted to repo root."
+
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
